@@ -1,0 +1,20 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-transition {
+  width: 100%;
+  min-height: 100vh;
+  animation: page-enter 0.7s ease;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
