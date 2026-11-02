@@ -11,6 +11,7 @@ import {
 import moduleName from 'module';
 import  Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro";
+import Home from "./pages/Home/Home";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function AnimatedRoutes() {
       <Routes location={location}>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/home" element={<Home />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </div>
