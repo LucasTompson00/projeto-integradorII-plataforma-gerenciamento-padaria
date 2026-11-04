@@ -7,7 +7,7 @@ function Cadastro() {
       <section className="register-brand">
         <div className="brand-content">
 
-          <h1>Padaria</h1>
+          <h1>Panificadora</h1>
           <span className="brand-symbol">GAVA</span>
 
           <p>
