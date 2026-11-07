@@ -1,22 +1,4 @@
 import { useEffect, useState } from "react";
-import {
-  Award,
-  Briefcase,
-  Clock,
-  Croissant,
-  Eye,
-  EyeOff,
-  House,
-  LayoutGrid,
-  LogOut,
-  MapPin,
-  Menu,
-  Plus,
-  Settings,
-  ShoppingBag,
-  SlidersHorizontal,
-  Trash2,
-} from "lucide-react";
 import "./Perfil.css";
 
 const STORAGE_KEY = "padaria.perfil.v1";
