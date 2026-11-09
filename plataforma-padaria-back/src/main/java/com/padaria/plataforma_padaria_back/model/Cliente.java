@@ -40,7 +40,7 @@ public class Cliente {
     private OffsetDateTime atualizadoEm;
 
     @AssertTrue(message = "Falha")
-    private boolean isLoginValid(){
+    public boolean isLoginValid(){
         return (email != null && !email.isBlank()) || 
         (usuario != null && usuario.isBlank());
     }
