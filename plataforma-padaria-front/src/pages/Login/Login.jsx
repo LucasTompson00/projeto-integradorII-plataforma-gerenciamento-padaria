@@ -1,18 +1,17 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
+import iconGava from "../../assets/icons/icon_gava.png";
 
 function Login() {
   return (
     <main className="login-page">
       <section className="login-brand">
         <div className="brand-content">
-          <h1>Panificadora</h1>
-
-          <span className="brand-symbol">GAVA</span>
-
-          <p>
-            Gestão simples e eficiente para o dia a dia da sua padaria.
-          </p>
+          <div className="gava-icon">
+            <img src={iconGava} alt="Logo da Panificadora Gava" />
+          </div>
+          <span className="brand-symbol"></span>
+          <p>Gestão simples e eficiente para o dia a dia da sua padaria.</p>
         </div>
 
         <div className="brand-decoration decoration-one"></div>
@@ -30,11 +29,7 @@ function Login() {
         <form className="login-form">
           <div className="input-group">
             <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Digite seu e-mail"
-            />
+            <input type="email" id="email" placeholder="Digite seu e-mail" />
           </div>
 
           <div className="input-group">
@@ -62,7 +57,7 @@ function Login() {
 
         <div className="login-footer">
           <p>
-            Ainda não possui uma conta? {" "} <Link to="/cadastro">Cadastrar-se</Link>
+            Ainda não possui uma conta? <Link to="/cadastro">Cadastrar-se</Link>
           </p>
         </div>
       </section>

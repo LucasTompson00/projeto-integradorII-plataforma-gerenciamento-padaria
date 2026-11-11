@@ -1,15 +1,16 @@
 import "./Cadastro.css";
 import { Link } from "react-router-dom";
+import iconGava from "../../assets/icons/icon_gava.png";
 
 function Cadastro() {
   return (
     <main className="register-page">
       <section className="register-brand">
         <div className="brand-content">
-
-          <h1>Panificadora</h1>
-          <span className="brand-symbol">GAVA</span>
-
+          <div className="gava-icon">
+            <img src={iconGava} alt="Logo da Panificadora Gava" />
+          </div>
+          <span className="brand-symbol"></span>
           <p>
             Crie sua conta e tenha acesso ao sistema de gestão da sua padaria.
           </p>
@@ -30,20 +31,12 @@ function Cadastro() {
         <form className="register-form">
           <div className="input-group">
             <label htmlFor="name">Nome completo</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Digite seu nome"
-            />
+            <input type="text" id="name" placeholder="Digite seu nome" />
           </div>
 
           <div className="input-group">
             <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Digite seu e-mail"
-            />
+            <input type="email" id="email" placeholder="Digite seu e-mail" />
           </div>
 
           <div className="input-group">
