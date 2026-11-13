@@ -1,7 +1,48 @@
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { API_URL } from "../../../config";
 
 function Login() {
+
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [erro, setErro] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setErro("");
+
+    if(!email.trim() || !password.trim()) {
+      setErro("Preencha todos os campos.");
+      return ;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(API_URL, {
+        method: "GET",
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify({email: email, senha: password})
+      });
+
+      if(!response.ok) {
+        throw new Error("Não foi possível logar na conta.");
+      }
+
+      navigate("/Home");
+
+    } catch(err) {
+      setErro("Erro ao logar. Tente novamente.");
+    } finally {
+      setLoading(false);
+    }
+
+  }
+
   return (
     <main className="login-page">
       <section className="login-brand">
@@ -27,13 +68,15 @@ function Login() {
           <p>Acesse sua conta para continuar</p>
         </div>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="email">E-mail</label>
             <input
               type="email"
               id="email"
               placeholder="Digite seu e-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -43,6 +86,8 @@ function Login() {
               type="password"
               id="password"
               placeholder="Digite sua senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
@@ -55,8 +100,12 @@ function Login() {
             <a href="#">Esqueci minha senha</a>
           </div>
 
-          <button type="submit" className="login-button">
-            Entrar
+          <p className="erro-form">
+            {erro}
+          </p>
+
+          <button type="submit" className="login-button" disable={loading}>
+            {loading ? "Entrando..." : "Entrar"}
           </button>
         </form>
 
