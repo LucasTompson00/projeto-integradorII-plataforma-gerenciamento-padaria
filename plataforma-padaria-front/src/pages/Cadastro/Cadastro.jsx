@@ -37,7 +37,7 @@ function Cadastro() {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {"Content-Type" : "application/json"},
-        body: JSON.stringify({nome: name, email: email, senhaHash: password})
+        body: JSON.stringify({nome: name, email: email, senha: password})
       });
 
       if(!response.ok) {
