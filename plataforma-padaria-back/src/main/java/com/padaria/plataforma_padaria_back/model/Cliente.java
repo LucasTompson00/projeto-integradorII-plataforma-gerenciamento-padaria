@@ -17,10 +17,6 @@ public class Cliente {
     @Column(length = 120, nullable = false)
     private String nome;
 
-    @Size(max = 40)
-    @Column(length = 40)
-    private String usuario;
-
     @Email
     @Size(max = 254)
     @Column(length = 254)
@@ -41,8 +37,28 @@ public class Cliente {
 
     @AssertTrue(message = "Falha")
     public boolean isLoginValid(){
-        return (email != null && !email.isBlank()) || 
-        (usuario != null && usuario.isBlank());
+        return (email != null && !email.isBlank());
     }
+
+    public Long getId() { return id; }
+    public void setId(Long novoId) { id = novoId; }
+
+    public String getNome() { return nome; }
+    public void setName(String novoNome) { nome = novoNome; }
+
+    public String getSenhaHash() { return senhaHash; }
+    public void setSenhaHash(String novaSenhaHash) { senhaHash = novaSenhaHash; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String novoEmail) { email = novoEmail; }
+
+    public boolean getAtivo() { return ativo; }
+    public void setAtivo(boolean novoAtivo) { ativo = novoAtivo; }
+
+    public OffsetDateTime getCriadoEm() { return criadoEm; }
+    public void setCriadoEm(OffsetDateTime novoCriadoEm) { criadoEm = novoCriadoEm; }
+
+    public OffsetDateTime getAtualizadoEm() { return atualizadoEm; }
+    public void setAtualizadoEm(OffsetDateTime novoAtualizadoEm) { atualizadoEm = novoAtualizadoEm; }
 
 }
