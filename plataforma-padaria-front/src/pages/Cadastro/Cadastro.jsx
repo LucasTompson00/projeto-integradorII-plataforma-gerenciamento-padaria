@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { API_URL } from "../../../config";
 
-export const API_URL = import.meta.env.VITE_API_URL;
-
 function Cadastro() {
 
   const navigate = useNavigate();
