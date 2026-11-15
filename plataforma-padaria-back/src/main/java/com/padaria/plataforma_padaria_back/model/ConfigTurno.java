@@ -32,4 +32,16 @@ public class ConfigTurno {
         return horaInicio.isBefore(horaFim);
     }
 
+    public turnoEncomenda getTurno() { return turno; }
+    public void setTurno(turnoEncomenda novoTurno) { turno = novoTurno;  }
+
+    public LocalTime getHoraInicio() { return horaInicio; }
+    public void sethoraInicio(LocalTime novoHoraInicio) { horaInicio = novoHoraInicio; }
+
+    public LocalTime getHoraFim() { return horaFim; }
+    public void setHoraFim(LocalTime novoHoraFim) { horaFim = novoHoraFim; }
+
+    public Integer getLimiteEncomendas() { return limiteEncomendas; }
+    public void setLimiteEncomendas(Integer novoLimiteEncomendas) { limiteEncomendas = novoLimiteEncomendas; }
+
 }
