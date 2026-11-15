@@ -23,7 +23,6 @@ public class Notificacao {
     @Column(name = "destinatario", nullable = false)
     private destinatarioNotificacao destinatario;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
@@ -47,5 +46,29 @@ public class Notificacao {
         return (destinatario == destinatarioNotificacao.CLIENTE && cliente != null) ||
         (destinatario == destinatarioNotificacao.CAIXA && cliente == null);
     }
+
+    public Long getId() { return id; }
+    public void setId(long novoId) { id = novoId; }
+
+    public Pedido getPedido() { return pedido; }
+    public void setPedido(Pedido novoPedido) { pedido = novoPedido; }
+
+    public destinatarioNotificacao getDestinatario() { return destinatario; }
+    public void setDestinatario(destinatarioNotificacao novoDestinatario) { destinatario = novoDestinatario; }
+
+    public Cliente getCliente() { return cliente; }
+    public void setCliente(Cliente novoCliente) { cliente = novoCliente; }
+
+    public String getMensagem() { return mensagem; }
+    public void setMensagem(String novaMensagem) { mensagem = novaMensagem; }
+
+    public OffsetDateTime getCriadaEm() { return criadaEm; }
+    public void setCriadaEm(OffsetDateTime novaCriadaEm) { criadaEm = novaCriadaEm; } 
+
+    public OffsetDateTime getEnviadaEm() { return enviadaEm; }
+    public void setEnviadaEm(OffsetDateTime novoEnviadaEm) { enviadaEm = novoEnviadaEm; }
+
+    public OffsetDateTime getLidaEm() { return lidaEm; } 
+    public void setLidaEm(OffsetDateTime novoLidaEm) { lidaEm = novoLidaEm; }
 
 }
