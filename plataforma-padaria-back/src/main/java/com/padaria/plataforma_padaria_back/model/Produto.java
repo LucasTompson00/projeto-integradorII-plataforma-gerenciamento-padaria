@@ -34,7 +34,7 @@ public class Produto {
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "status_produto")
-    private statusProduto statuProduto = statusProduto.DISPONIVEL;
+    private statusProduto status = statusProduto.DISPONIVEL;
 
     @NotNull
     private Boolean ativo = true;
@@ -51,5 +51,32 @@ public class Produto {
     public Boolean isPrecoPromocionalValid() {
         return precoPromocional == null || preco.compareTo(precoPromocional) > 0;
     }
+
+    public Long getId() { return id; }
+    public void setId(Long novoId) { id = novoId; }
+
+    public String getNome() { return nome; }
+    public void setName(String novoNome) { nome = novoNome; }
+
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String novaDescricao) { descricao = novaDescricao; }
+
+    public BigDecimal getPreco() { return preco; }
+    public void setPreco(BigDecimal novoPreco) { preco = novoPreco; }
+
+    public BigDecimal getPrecoPromocional() { return precoPromocional; }
+    public void setPrecoPromocao(BigDecimal novoPrecoPromocional) { precoPromocional = novoPrecoPromocional; }
+
+    public statusProduto getStatus() { return status; }
+    public void setStatus(statusProduto novoStatus) { status = novoStatus; }
+
+    public boolean getAtivo() { return ativo; }
+    public void setAtivo(Boolean novoAtivo) { ativo = novoAtivo; }
+
+    public OffsetDateTime getCriadoEm() { return criadoEm; }
+    public void setCriadoEm(OffsetDateTime novoCriadoEm) { criadoEm = novoCriadoEm; }
+
+    public OffsetDateTime getAtualizadoEm() { return atualizadoEm; }
+    public void setAtualizadoEm(OffsetDateTime novoAtualizadoEm) { atualizadoEm = novoAtualizadoEm; }
 
 }
