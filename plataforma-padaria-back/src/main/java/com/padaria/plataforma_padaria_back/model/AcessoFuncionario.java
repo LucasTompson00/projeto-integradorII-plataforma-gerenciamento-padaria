@@ -25,4 +25,15 @@ public class AcessoFuncionario {
     @Column(name = "atualizado_em", nullable = false)
     private OffsetDateTime atualizadoEm;
 
+    public boolean getId() { return id; }
+    public void setId(Boolean novoId) { id = novoId; }
+
+    // Algo que vamos alterar kkkk DB deve sofrer alterações.
+
+    public String getSenhaHash() { return senhaHash; }
+    public void setSenhaHash(String novaSenhaHash) { senhaHash = novaSenhaHash; }
+
+    public OffsetDateTime getAtualizadoEm() { return atualizadoEm; }
+    public void setAtualizadoEm(OffsetDateTime novoAtualizadoEm) { atualizadoEm = novoAtualizadoEm; }
+
 }
