@@ -25,4 +25,16 @@ public class Configuracao {
     @Column(name = "fuso_horario", nullable = false)
     private String fusoHorario = "America/Sao_Paulo";
 
+    public boolean getId() { return id; }
+    public void setId(Boolean novoId) { id = novoId; }
+
+    public Integer getAntecedenciaMinimaMin() { return antecedenciaMinimaMin; }
+    public void setAntecedenciaMinimaMin(Integer novoAntecedenciaMinimaMin) { antecedenciaMinimaMin = novoAntecedenciaMinimaMin; }
+
+    public Integer getToleranciaRetiradaMin() { return toleranciaRetiradaMin; }
+    public void setToleranciaRetiradaMin(Integer novoToleranciaRetiradaMin) { toleranciaRetiradaMin = novoToleranciaRetiradaMin; }
+
+    public String getFusoHorario() { return fusoHorario; }
+    public void setFusoHorario(String novoFusoHorario) { fusoHorario = novoFusoHorario; }
+
 }
