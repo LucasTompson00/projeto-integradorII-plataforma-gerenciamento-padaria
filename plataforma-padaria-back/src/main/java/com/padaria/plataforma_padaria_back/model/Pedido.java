@@ -72,4 +72,43 @@ public class Pedido {
         !prazoLimiteRetirada.isBefore(retiradaEm);
     }
 
+    public Long getId() { return id; }
+    public void setId(Long novoId) { id = novoId; }
+
+    public Cliente getCliente() { return cliente; }
+    public void setCliente(Cliente novoCliente) { cliente = novoCliente; }
+
+    public OffsetDateTime getCriadoEm() { return criadoEm; }
+    public void setCriadoEm(OffsetDateTime novoCriadoEm) { criadoEm = novoCriadoEm; }
+
+    public OffsetDateTime getRetiradaEm() { return retiradaEm; }
+    public void setRetiradaEm(OffsetDateTime novaRetiradaEm) { retiradaEm = novaRetiradaEm; }
+
+    public OffsetDateTime getPrazoLimiteRetirada() { return prazoLimiteRetirada; }
+    public void setPrazoLimiteRetirada(OffsetDateTime novoPrazoLimiteRetirada) { prazoLimiteRetirada = novoPrazoLimiteRetirada; }
+
+    public  turnoEncomenda getTurnoEncomenda() { return turnoEncomenda; }
+    public void setTurnoEncomenda(turnoEncomenda novoTurnoEncomenda) { turnoEncomenda = novoTurnoEncomenda; }
+
+    public LocalDate getDataRetirada() { return dataRetirada; }
+    public void setDataRetirada(LocalDate novaDataRetirada) { dataRetirada = novaDataRetirada; }
+
+    public statusPedido getStatus() { return status; }
+    public void setStatusPedido(statusPedido novoStatus) { status = novoStatus; }
+
+    public String getObservacao() { return observacao; }
+    public void setObservacao(String novoObservacao) { observacao = novoObservacao; }
+
+    public OffsetDateTime getRecebidoEm() { return recebidoEm; }
+    public void setRecebidoEm(OffsetDateTime novoRecebidoEm) { recebidoEm = novoRecebidoEm; }
+
+    public OffsetDateTime getConcluidoEm() { return concluidoEm; }
+    public void setConcluidoEm(OffsetDateTime novoConcluidoEm) { concluidoEm = novoConcluidoEm; }
+
+    public OffsetDateTime getRetiradoEm() { return retiradoEm; }
+    public void setRetiradoEm(OffsetDateTime novoRetiradoEm) { retiradoEm = novoRetiradoEm;  } 
+
+    public OffsetDateTime getCanceladoEm() { return canceladoEm; }
+    public void setCanceladoEm(OffsetDateTime novoCanceladoEm) { canceladoEm = novoCanceladoEm; }
+
 }
