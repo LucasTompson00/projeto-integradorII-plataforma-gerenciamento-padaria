@@ -39,4 +39,19 @@ public class ItemPedido {
     @DecimalMin(value = "0.00", message = "O valor nao deve ser negativo.")
     private BigDecimal precoUnitario;
 
+    public Long getId() { return id; }
+    public void setId(Long novoId) { id = novoId; }
+
+    public Pedido getPedido() { return pedido; }
+    public void setPedido(Pedido novoPedido) { pedido = novoPedido; }
+
+    public Produto getProduto() { return produto; }
+    public void setProduto(Produto novoProduto) { produto = novoProduto; }
+
+    public Integer getQuantidade() { return quantidade; }
+    public void setQuantidade(Integer novoQuantidade) { quantidade = novoQuantidade; }
+
+    public BigDecimal getPrecoUnitario() { return precoUnitario; }
+    public void setPrecoUnitario(BigDecimal novoPrecoUnitario) { precoUnitario = novoPrecoUnitario; }
+
 }
