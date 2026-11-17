@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+
+  --navy: #0c1e3d;
+  --gold: #e3b23c;
+  --gold-deep: #c9962a;
+  --ink: #1c1915;
+  --muted: #7a7368;
+  --cream: #f6f3ee;
+  --paper: #ffffff;
+  --line: #e7e1d6;
+  --choc: #3d2b1c;
+  --good: #215536;
+  --danger: #8d341f;
+
+  --app-topbar-height: 72px;
+  --app-sidebar-width: 248px;
+  --app-sidebar-collapsed-width: 76px;
+  --app-content-padding: clamp(18px, 2.8vw, 34px);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 8px 24px rgba(48, 32, 16, 0.055);
+  --shadow-menu: 0 16px 40px rgba(12, 30, 61, 0.18);
+}
