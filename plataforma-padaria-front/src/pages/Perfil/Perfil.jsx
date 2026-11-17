@@ -6,26 +6,15 @@ import {
   Eye,
   EyeOff,
   House,
-  LayoutGrid,
   LogOut,
   MapPin,
-  Menu,
   Plus,
-  Settings,
   ShoppingBag,
-  SlidersHorizontal,
   Trash2,
   UserRound,
 } from "lucide-react";
 import "./Perfil.css";
 
-const RAIL = [
-  { id: "dados", label: "Conta", icon: LayoutGrid },
-  { id: "pedidos", label: "Pedidos", icon: ShoppingBag },
-  { id: "fidelidade", label: "Fidelidade", icon: Award },
-  { id: "preferencias", label: "Preferências", icon: SlidersHorizontal },
-  { id: "seguranca", label: "Ajustes", icon: Settings },
-];
 
 const SECTIONS = [
   { id: "dados", label: "Dados" },
@@ -227,7 +216,6 @@ export default function Perfil() {
     movimentos: [],
   }));
   const [section, setSection] = useState("dados");
-  const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(null);
   const [errors, setErrors] = useState({});
@@ -249,11 +237,10 @@ export default function Perfil() {
   }, [toast]);
 
   useEffect(() => {
-    if (!editing && !open) return undefined;
+    if (!editing && !adding && !removerId) return undefined;
 
     function onKey(event) {
       if (event.key !== "Escape") return;
-      setOpen(false);
       setEditing(false);
       setErrors({});
       setDraft(null);
@@ -263,11 +250,10 @@ export default function Perfil() {
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [editing, open]);
+  }, [editing, adding, removerId]);
 
   const view = editing && draft ? { ...profile, ...draft } : profile;
   const displayName = view.nome?.trim() || "Minha conta";
-  const firstName = profile.nome?.trim().split(/\s+/)[0] || "cliente";
   const orders = Array.isArray(profile.pedidos) ? profile.pedidos : [];
   const filteredOrders =
     filtro === "todos"
@@ -280,7 +266,6 @@ export default function Perfil() {
 
   function choose(id) {
     setSection(id);
-    if (window.innerWidth < 761) setOpen(false);
   }
 
   function updateProfile(partial, message) {
@@ -423,73 +408,8 @@ export default function Perfil() {
   const stampLabel = profile.selos === null ? "—" : numberFormat(profile.selos);
 
   return (
-    <div className={open ? "pf is-wide" : "pf"}>
-      <a className="pf-skip" href="#pf-panel">
-        Ir para o conteúdo
-      </a>
-
-      <header className="pf-top">
-        <button
-          type="button"
-          className="pf-menu"
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <Menu size={22} />
-        </button>
-        <p className="pf-title">Sistema Gestão Padaria</p>
-        <span />
-      </header>
-
-      <div className="pf-body">
-        <button
-          type="button"
-          className="pf-scrim"
-          aria-label="Fechar menu"
-          onClick={() => setOpen(false)}
-        />
-
-        <nav className="pf-rail" aria-label="Seções da conta">
-          <div className="pf-brand">
-            <span className="pf-logo" aria-hidden="true">
-              FG
-            </span>
-            <span className="pf-rail-label">Padaria</span>
-          </div>
-
-          {RAIL.map((item) => {
-            const Icon = item.icon;
-            const current = section === item.id;
-
-            return (
-              <button
-                key={item.id}
-                type="button"
-                className={current ? "pf-rail-btn is-on" : "pf-rail-btn"}
-                aria-current={current ? "page" : undefined}
-                aria-label={item.label}
-                onClick={() => choose(item.id)}
-              >
-                <Icon size={20} strokeWidth={1.75} />
-                <span className="pf-rail-label">{item.label}</span>
-              </button>
-            );
-          })}
-
-          <span className="pf-rail-gap" />
-
-          <button
-            type="button"
-            className="pf-orb"
-            aria-label={profile.nome ? `Conta de ${profile.nome}` : "Minha conta"}
-            onClick={() => choose("dados")}
-          >
-            {initials(profile.nome) || <UserRound size={17} />}
-          </button>
-        </nav>
-
-        <main className="pf-main">
+    <div className="pf">
+      <main className="pf-main">
           <section className="pf-card pf-identity">
             <div className="pf-avatar" aria-hidden="true">
               {initials(view.nome) || <UserRound size={30} />}
@@ -1185,8 +1105,7 @@ export default function Perfil() {
               Ambiente de desenvolvimento: as alterações ficam apenas nesta tela e não são enviadas ao servidor.
             </p>
           ) : null}
-        </main>
-      </div>
+      </main>
 
       <p className="pf-toast" role="status" aria-live="polite">
         {toast}

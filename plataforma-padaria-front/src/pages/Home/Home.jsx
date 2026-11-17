@@ -7,20 +7,12 @@ import {
   X,
   Package,
   Info,
-  House,
-  ClipboardList,
-  UserRound,
-  LogOut,
-  PanelLeftClose,
-  PanelLeftOpen,
 } from "lucide-react";
-import { NavLink, Link } from "react-router-dom";
 import "./Home.css";
 
 const categoriasPadrao = ["Todos", "Pães", "Confeitaria", "Salgados"];
 
-function Home({ produtosApi = [], onSair }) {
-  const [sidebarRecolhida, setSidebarRecolhida] = useState(false);
+function Home({ produtosApi = [] }) {
   const [busca, setBusca] = useState("");
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
   const [carrinho, setCarrinho] = useState([]);
@@ -125,87 +117,7 @@ function Home({ produtosApi = [], onSair }) {
   }
 
   return (
-    <div
-      className={`home-layout ${sidebarRecolhida ? "sidebar-recolhida" : ""}`}
-    >
-      <aside className="home-sidebar">
-        <button
-          type="button"
-          className="home-sidebar-toggle"
-          onClick={() => setSidebarRecolhida(!sidebarRecolhida)}
-          aria-label={
-            sidebarRecolhida ? "Expandir menu" : "Recolher menu"
-          }
-          title={sidebarRecolhida ? "Expandir menu" : "Recolher menu"}
-        >
-          {sidebarRecolhida ? (
-            <PanelLeftOpen size={21} />
-          ) : (
-            <PanelLeftClose size={21} />
-          )}
-        </button>
-
-        <nav className="home-sidebar-navegacao">
-          <NavLink
-            to="/home"
-            end
-            className={({ isActive }) =>
-              `home-sidebar-link ${isActive ? "ativo" : ""}`
-            }
-            title={sidebarRecolhida ? "Início" : undefined}
-          >
-            <House size={20} />
-            <span>Início</span>
-          </NavLink>
-
-          <NavLink
-            to="/pedidos"
-            className={({ isActive }) =>
-              `home-sidebar-link ${isActive ? "ativo" : ""}`
-            }
-            title={sidebarRecolhida ? "Meus pedidos" : undefined}
-          >
-            <ClipboardList size={20} />
-            <span>Meus pedidos</span>
-          </NavLink>
-
-          <NavLink
-            to="/perfil"
-            className={({ isActive }) =>
-              `home-sidebar-link ${isActive ? "ativo" : ""}`
-            }
-            title={sidebarRecolhida ? "Meu perfil" : undefined}
-          >
-            <UserRound size={20} />
-            <span>Meu perfil</span>
-          </NavLink>
-        </nav>
-
-        <div className="home-sidebar-final">
-          {onSair ? (
-            <button
-              type="button"
-              className="home-sidebar-link home-sidebar-sair"
-              onClick={onSair}
-              title={sidebarRecolhida ? "Sair" : undefined}
-            >
-              <LogOut size={20} />
-              <span>Sair</span>
-            </button>
-          ) : (
-            <Link
-              to="/login"
-              className="home-sidebar-link home-sidebar-sair"
-              title={sidebarRecolhida ? "Sair" : undefined}
-            >
-              <LogOut size={20} />
-              <span>Sair</span>
-            </Link>
-          )}
-        </div>
-      </aside>
-
-      <main className="home-page">
+    <main className="home-page">
         <section className="home-fornada">
           <div className="home-fornada-texto">
             <span>PANIFICADORA GAVA</span>
@@ -568,8 +480,7 @@ function Home({ produtosApi = [], onSair }) {
             </section>
           </div>
         )}
-      </main>
-    </div>
+    </main>
   );
 }
 

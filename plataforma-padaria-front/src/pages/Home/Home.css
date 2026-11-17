@@ -1,153 +1,9 @@
-
-.home-layout {
-  --navy: #0c1e3d;
-  --gold: #e3b23c;
-  --gold-deep: #c9962a;
-  --ink: #1c1915;
-  --muted: #7a7368;
-  --cream: #f6f3ee;
-  --paper: #ffffff;
-  --line: #e7e1d6;
-  --choc: #3d2b1c;
-  display: flex;
-  min-height: 100vh;
-  background: var(--cream);
-  color: var(--ink);
-  font-family: Manrope, "Segoe UI", sans-serif;
-}
-
-.home-layout,
-.home-layout *,
-.home-layout *::before,
-.home-layout *::after {
-  box-sizing: border-box;
-}
-
-.home-layout button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.home-layout button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.home-sidebar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  flex: 0 0 220px;
-  flex-direction: column;
-  width: 220px;
-  height: 100vh;
-  padding: 20px 12px;
-  background: var(--navy);
-  color: var(--paper);
-  transition: width 200ms ease, flex-basis 200ms ease;
-}
-
-.home-sidebar-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  margin: 0 0 30px auto;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  background: transparent;
-  color: var(--gold);
-  transition: background 160ms ease;
-}
-
-.home-sidebar-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.home-sidebar-navegacao {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.home-sidebar-link {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  width: 100%;
-  min-height: 46px;
-  padding: 0 13px;
-  overflow: hidden;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 12px;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 160ms ease, color 160ms ease;
-}
-
-.home-sidebar-link svg {
-  flex: none;
-}
-
-.home-sidebar-link:hover {
-  background: rgba(255, 255, 255, 0.09);
-  color: var(--paper);
-}
-
-.home-sidebar-link.ativo {
-  border-color: rgba(227, 178, 60, 0.2);
-  background: rgba(227, 178, 60, 0.14);
-  color: var(--gold);
-}
-
-.home-sidebar-final {
-  margin-top: auto;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.home-sidebar-sair {
-  color: #e9b3a8;
-}
-
-.home-sidebar-sair:hover {
-  background: rgba(141, 52, 31, 0.2);
-  color: var(--paper);
-}
-
-.sidebar-recolhida .home-sidebar {
-  flex-basis: 72px;
-  width: 72px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.sidebar-recolhida .home-sidebar-toggle {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.sidebar-recolhida .home-sidebar-link {
-  justify-content: center;
-  padding: 0;
-}
-
-.sidebar-recolhida .home-sidebar-link span {
-  display: none;
-}
-
 .home-page {
-  flex: 1;
+  width: 100%;
+  max-width: 1220px;
   min-width: 0;
-  min-height: 100vh;
-  padding: 32px 36px 60px;
-  background: var(--cream);
+  margin: 0 auto;
+  padding: 0;
   color: var(--ink);
 }
 
@@ -902,10 +758,6 @@
 }
 
 @media (max-width: 1100px) {
-  .home-page {
-    padding-right: 24px;
-    padding-left: 24px;
-  }
 
   .home-grade-produtos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -922,30 +774,7 @@
 }
 
 @media (max-width: 760px) {
-  .home-sidebar {
-    flex-basis: 72px;
-    width: 72px;
-    padding-right: 9px;
-    padding-left: 9px;
-  }
 
-  .home-sidebar-toggle {
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .home-sidebar-link {
-    justify-content: center;
-    padding: 0;
-  }
-
-  .home-sidebar-link span {
-    display: none;
-  }
-
-  .home-page {
-    padding: 20px 15px 40px;
-  }
 
   .home-fornada {
     align-items: flex-start;
@@ -1041,10 +870,6 @@
 }
 
 @media (max-width: 480px) {
-  .home-page {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
 
   .home-fornada {
     padding: 17px;
@@ -1102,9 +927,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-layout *,
-  .home-layout *::before,
-  .home-layout *::after {
+  .home-page *,
+  .home-page *::before,
+  .home-page *::after {
     scroll-behavior: auto !important;
     transition: none !important;
   }

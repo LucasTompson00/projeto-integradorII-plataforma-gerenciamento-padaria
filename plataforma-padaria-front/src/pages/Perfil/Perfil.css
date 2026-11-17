@@ -10,8 +10,8 @@
   --choc: #3d2b1c;
   --good: #215536;
   --danger: #8d341f;
-  min-height: 100vh;
-  background: var(--cream);
+  min-height: 100%;
+  background: transparent;
   color: var(--ink);
   color-scheme: light;
   font-family: Manrope, "Segoe UI", sans-serif;
@@ -36,236 +36,16 @@
   opacity: 0.45;
 }
 
-.pf-skip {
-  position: absolute;
-  left: 12px;
-  top: -48px;
-  z-index: 80;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 10px 14px;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.pf-skip:focus {
-  top: 10px;
-}
-
-.pf-top {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  display: grid;
-  grid-template-columns: 58px 1fr 58px;
-  align-items: center;
-  height: 58px;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-}
-
-.pf-menu {
-  width: 44px;
-  height: 44px;
-  margin-left: 8px;
-  display: grid;
-  place-items: center;
-  border: 0;
-  border-radius: 12px;
-  background: transparent;
-  color: var(--ink);
-}
-
-.pf-title {
-  margin: 0;
-  text-align: center;
-  font-size: clamp(14px, 4vw, 17px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-
-.pf-body {
-  display: grid;
-  grid-template-columns: 68px minmax(0, 1fr);
-  min-width: 0;
-}
-
-.pf-rail {
-  position: sticky;
-  top: 58px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  height: calc(100dvh - 58px);
-  padding: 14px 0 16px;
-  background: var(--navy);
-  z-index: 25;
-}
-
-.pf-brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.pf-logo,
-.pf-orb {
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--gold);
-  color: var(--navy);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.pf-logo {
-  width: 40px;
-  height: 40px;
-  font-size: 13px;
-}
-
-.pf-rail-btn,
-.pf-orb {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 12px;
-  background: transparent;
-  color: var(--gold);
-  font: inherit;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.pf-orb {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--gold);
-  color: var(--navy);
-  font-size: 12px;
-}
-
-.pf-rail-btn.is-on,
-.pf-rail-btn[aria-current="page"] {
-  background: rgba(227, 178, 60, 0.16);
-}
-
-.pf-rail-label {
-  display: none;
-  white-space: nowrap;
-}
-
-.pf-rail-gap {
-  flex: 1;
-}
-
-.pf-scrim {
-  display: none;
-  position: fixed;
-  z-index: 24;
-  inset: 58px 0 0;
-  border: 0;
-  background: rgba(12, 30, 61, 0.46);
-}
-
-.pf.is-wide .pf-scrim {
-  display: block;
-}
-
-@media (min-width: 761px) {
-  .pf.is-wide .pf-body {
-    grid-template-columns: 220px minmax(0, 1fr);
-  }
-
-  .pf.is-wide .pf-scrim {
-    display: none;
-  }
-
-  .pf.is-wide .pf-rail {
-    align-items: stretch;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .pf.is-wide .pf-brand {
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 0 4px 8px;
-  }
-
-  .pf.is-wide .pf-rail-btn {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 0 10px;
-  }
-
-  .pf.is-wide .pf-rail-label {
-    display: inline;
-  }
-
-  .pf.is-wide .pf-orb {
-    align-self: flex-start;
-    margin-left: 4px;
-  }
-}
-
-@media (max-width: 760px) {
-  .pf.is-wide .pf-rail {
-    position: fixed;
-    z-index: 40;
-    top: 58px;
-    left: 0;
-    bottom: 0;
-    width: 228px;
-    height: auto;
-    align-items: stretch;
-    padding-left: 12px;
-    padding-right: 12px;
-    box-shadow: 16px 0 40px rgba(12, 30, 61, 0.28);
-  }
-
-  .pf.is-wide .pf-brand {
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 0 4px 8px;
-  }
-
-  .pf.is-wide .pf-rail-btn {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 0 10px;
-  }
-
-  .pf.is-wide .pf-rail-label {
-    display: inline;
-  }
-
-  .pf.is-wide .pf-orb {
-    align-self: flex-start;
-    margin-left: 4px;
-  }
-}
 
 .pf-main {
   display: flex;
   flex-direction: column;
   gap: 14px;
   width: 100%;
-  max-width: 1040px;
+  max-width: 1220px;
   min-width: 0;
   margin: 0 auto;
-  padding: 22px 22px 56px;
+  padding: 0;
 }
 
 .pf-card,
@@ -1097,9 +877,6 @@
   border: 0;
 }
 
-.pf-menu:focus-visible,
-.pf-rail-btn:focus-visible,
-.pf-orb:focus-visible,
 .pf-chip:focus-visible,
 .pf-btn:focus-visible,
 .pf-switch:focus-visible,
@@ -1124,9 +901,6 @@
   .pf-seg button:hover {
     border-color: #d5cec3;
   }
-  .pf-rail-btn:hover {
-    background: rgba(227, 178, 60, 0.12);
-  }
 }
 
 .pf-btn:active {
@@ -1135,7 +909,6 @@
 
 .pf-chip,
 .pf-btn,
-.pf-rail-btn,
 .pf-switch,
 .pf-knob i,
 .pf-seg button {
@@ -1154,7 +927,7 @@
 
 @media (max-width: 720px) {
   .pf-main {
-    padding: 14px 14px 40px;
+    padding: 0;
   }
 
   .pf-identity {
@@ -1221,7 +994,6 @@
 @media (prefers-reduced-motion: reduce) {
   .pf-chip,
   .pf-btn,
-  .pf-rail-btn,
   .pf-switch,
   .pf-knob i,
   .pf-seg button {
