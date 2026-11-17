@@ -1,0 +1,131 @@
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+  height: var(--app-topbar-height);
+  padding: 0 var(--app-content-padding);
+  background: var(--choc);
+  color: var(--paper);
+  box-shadow: 0 2px 10px rgba(28, 25, 21, 0.08);
+}
+
+.app-topbar__menu-button {
+  display: none;
+  flex: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--paper);
+}
+
+.app-topbar__menu-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.app-topbar__brand {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.app-topbar__logo {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 9px;
+  object-fit: contain;
+}
+
+.app-topbar__brand-name {
+  color: var(--paper);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+.app-topbar__separator {
+  width: 1px;
+  height: 34px;
+  flex: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.app-topbar__page-context {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.app-topbar__area-label {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-topbar__page-title {
+  overflow: hidden;
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-topbar__actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+@media (max-width: 760px) {
+  .app-topbar {
+    gap: 10px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .app-topbar__menu-button {
+    display: grid;
+  }
+
+  .app-topbar__logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .app-topbar__brand-name {
+    display: none;
+  }
+
+  .app-topbar__separator {
+    display: none;
+  }
+
+  .app-topbar__page-context {
+    flex: 1;
+  }
+
+  .app-topbar__area-label {
+    font-size: 8px;
+  }
+
+  .app-topbar__page-title {
+    font-size: 13px;
+  }
+}
