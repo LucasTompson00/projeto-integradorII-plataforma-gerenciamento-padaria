@@ -13,7 +13,6 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
 
-      {/* As páginas existentes do cliente já compartilham o mesmo layout. */}
       <Route element={<AppLayout area="cliente" />}>
         <Route path="/home" element={<Home />} />
         <Route path="/perfil" element={<Perfil />} />

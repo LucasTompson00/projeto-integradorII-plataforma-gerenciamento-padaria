@@ -1,0 +1,127 @@
+.app-profile {
+  position: relative;
+}
+
+.app-profile__trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 4px 8px 4px 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.app-profile__trigger:hover,
+.app-profile__trigger[aria-expanded="true"] {
+  border-color: rgba(227, 178, 60, 0.5);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.app-profile__avatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.app-profile__trigger > svg {
+  transition: transform 150ms ease;
+}
+
+.app-profile__trigger > svg.is-open {
+  transform: rotate(180deg);
+}
+
+.app-profile__menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 90;
+  width: 228px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow-menu);
+  color: var(--ink);
+  animation: app-profile-appear 140ms ease-out;
+}
+
+.app-profile__menu-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 11px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.app-profile__menu-heading strong {
+  font-size: 13px;
+}
+
+.app-profile__menu-heading span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.app-profile__menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  margin-top: 4px;
+  padding: 0 11px;
+  border-radius: 9px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.app-profile__menu-item:hover {
+  background: var(--cream);
+}
+
+.app-profile__menu-item--danger {
+  color: var(--danger);
+}
+
+.app-profile__menu-item--danger:hover {
+  background: #fbf0ed;
+}
+
+@keyframes app-profile-appear {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .app-profile__name {
+    display: none;
+  }
+
+  .app-profile__trigger {
+    gap: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-profile__trigger,
+  .app-profile__trigger > svg {
+    transition: none;
+  }
+
+  .app-profile__menu {
+    animation: none;
+  }
+}
