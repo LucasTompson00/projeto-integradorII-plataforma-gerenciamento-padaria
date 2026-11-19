@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import Topbar from "../Topbar/Topbar";
 import { navigationByArea } from "../../../config/navigation";
+import "./AppLayout.css";
 
 const pageTitles = {
   "/home": "Início",
